@@ -1,21 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { View, Text, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeApp from './home';
+import DemonsSoulsApp from './DemonsSouls';
+import DarkSouls2App from './DarkSouls2';
+import BloodborneApp from './Bloodborne';
+import DarkSouls3App from './DarkSouls3';
+import DarkSoulsApp from './DarkSouls';
+import SekiroApp from './Sekiro';
+import SobreApp from './Sobre';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+
+const Stack = createStackNavigator();
+
+function MeuApp() {
+  return(
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Melhores Jogos da FromSoftware" component={HomeApp} />
+        <Stack.Screen name="DemonsSouls" component={DemonsSoulsApp} />
+        <Stack.Screen name="DarkSouls" component={DarkSoulsApp} />
+        <Stack.Screen name="DarkSouls2" component={DarkSouls2App} />
+        <Stack.Screen name="DarkSouls3" component={DarkSouls3App} />
+        <Stack.Screen name="Bloodborne" component={BloodborneApp} />
+        <Stack.Screen name="Sekiro" component={SekiroApp} />
+        <Stack.Screen name="Sobre" component={SobreApp} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default MeuApp;
